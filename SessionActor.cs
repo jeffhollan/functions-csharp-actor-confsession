@@ -10,10 +10,12 @@ namespace Hollan.Function
         public int attendees;
         public IDictionary<string, double> reviews = new Dictionary<string, double>();
         public void ScanIn() => attendees++;
+
         public void SubmitEval(Evaluation eval) 
         {
             reviews.Add(eval.Attendee, eval.Score);
         }
+        
         public double AverageScore { 
             get {
                 return reviews.Count > 0 ? reviews.Values.Average() : 0.0;
@@ -24,10 +26,6 @@ namespace Hollan.Function
         public Task Run([EntityTrigger] IDurableEntityContext ctx) 
                 => ctx.DispatchAsync<Session>();   
     }
-
-
-
-
 
     public class Evaluation
     {

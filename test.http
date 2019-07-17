@@ -1,0 +1,16 @@
+### Get session details
+GET http://localhost:7071/runtime/webhooks/durabletask/entities/Session/az101
+
+
+### Scan in
+POST http://localhost:7071/runtime/webhooks/durabletask/entities/Session/az101?op=ScanIn
+
+
+### Add evaluation
+POST http://localhost:7071/runtime/webhooks/durabletask/entities/Session/az101?op=SubmitEval
+Content-Type: application/json
+
+{
+    "attendee": "Jeff",
+    "score": 4.2
+}
